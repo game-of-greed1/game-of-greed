@@ -15,3 +15,4 @@
 | Table Of Content                               | Links                                       |
 | ---------------------------------------------- | ------------------------------------------- |
 |  Lab: Game of Greed 1 : PR '1'                 | [PR '1'](https://github.com/game-of-greed1/game-of-greed/pull/4)|
+|  Lab: Game of Greed 1 : PR '2'                 | [PR '2'](https://github.com/game-of-greed1/game-of-greed/pull/6)|
