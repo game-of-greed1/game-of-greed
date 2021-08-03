@@ -2,12 +2,18 @@ import random
 
 from collections import Counter
 from random import randint
+
+
 class GameLogic:
+
+    ####################################################################
 
     @staticmethod
     def roll_dice(num):
         list = [random.randint(1,6) for i in range(num)]
         return tuple(list)
+
+    ####################################################################
 
     @staticmethod
     def calculate_score(dice):
@@ -60,5 +66,41 @@ class GameLogic:
 
         return score
 
+    ############################################################
 
+    def validate_keepers(arr1 , arr2):
+        arr1 = Counter(arr1)
+        arr2 = Counter(arr2)
+        for key in arr1:
+            if key in arr2:
+                if(arr1[key] == arr2[key]):
+                    return True
+                else:
+                    return False
+            else:
+                return False
+
+    ####################################################################
+
+    @staticmethod
+    def get_scoqrers(dice):
+        all_dice_score = GameLogic.calculate_score(dice)
+        if all_dice_score == 0:
+            return tuple()
+        scorers = []
+        for i in range(len(dice) + 1 ):
+            sub_roll = dice[:i] + dice[i + 1 :]
+            sub_score = GameLogic.calculate_score(sub_roll)
+            if sub_score != all_dice_score:
+                scorers.append(dice[i])
+        return tuple(scorers)
+        
+############################################################
+
+if __name__ == "__main__":
+    game = GameLogic()
+    test = game.get_scoqrers( (4, 5, 2, 3, 3, 6,) )
+    print("###################")
+    print(test)
+    print("###################")
 
