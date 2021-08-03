@@ -17,10 +17,10 @@ class Game(GameLogic, Banker):
             in_play = True
             rounds_number = 1
             dice_number = 6
-            ask_User2 = "b"
+            # ask_User2 = "b"
             while in_play:
-                if ask_User2 == "b":
-                    print(f"Starting round {rounds_number}")
+                # if ask_User2 == "b":
+                print(f"Starting round {rounds_number}")
                     
                 print(f"Rolling {dice_number} dice...")
                 dice = roller(dice_number)
