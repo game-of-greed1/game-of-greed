@@ -85,27 +85,16 @@ class GameLogic:
     @staticmethod
     def get_scoqrers(dice):
         all_dice_score = GameLogic.calculate_score(dice)
-
-        print(f'all_dice_score >>>>> {all_dice_score}')
-
         if all_dice_score == 0:
             return tuple()
-
         scorers = []
         for i in range(len(dice) + 1 ):
             sub_roll = dice[:i] + dice[i + 1 :]
-            print(f'sub_roll > {sub_roll} /  i > {i}')
             sub_score = GameLogic.calculate_score(sub_roll)
-            print(f'sub_score > {sub_score} /  i > {i}')
             if sub_score != all_dice_score:
                 scorers.append(dice[i])
-                print(f'End if')
-            print("*******************************************")
-        print(f'scorers > {scorers}')
         return tuple(scorers)
-
-
-
+        
 ############################################################
 
 if __name__ == "__main__":
@@ -114,15 +103,4 @@ if __name__ == "__main__":
     print("###################")
     print(test)
     print("###################")
-    # print(test)
-    # print("***********************")
-    # dice = ( 2, 2, 3, 3, 3, 6, )
-    # print(len(dice))
-    # print("***********************")
-    # scorers = []
-    # for i in range(len(dice) ):
-    #     sub_roll = dice[:i] + dice[i + 1 :]
-    #     sub_score = GameLogic.calculate_score(sub_roll)
-    #     if sub_score != all_dice_score:
-    #         scorers.append(dice[i])
-        
+
