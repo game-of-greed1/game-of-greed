@@ -1,5 +1,7 @@
 import random
 
+from collections import Counter
+from random import randint
 class GameLogic:
 
     @staticmethod
@@ -8,69 +10,55 @@ class GameLogic:
         return tuple(list)
 
     @staticmethod
-    def calculate_score(num)->int:
+    def calculate_score(dice):
+       
+        if len(dice) > 6:
+            raise Exception("Cheating Cheater!")
 
-        if num.count(1)==6:
-            return 4000
+        count_times = Counter(dice)
 
-        if( num.count(5) == 3):
-            return 500  
-        
-        if( num.count(1) == 3 and  num.count(5) == 1 ):
-            return 1050  
-
-        if( num.count(1) == 3):
-            return 1000 
-
-        if(num.count(1)==1 and num.count(2)==1 and num.count(3)==1 and num.count(4)==1 and num.count(5)==1 and num.count(6)==1):
+        if len(count_times) == 6:
             return 1500
 
-        if num.count(2)==6:
-                return 800
+        if len(count_times) == 3 and all(val == 2 for val in count_times.values()):
+            return 1500
 
-        if num.count(2)==5:
-                return 600
+        score = 0
 
-        if num.count(2)==4:
-            return 400
+        ones_used = fives_used = False
 
-        if num.count(2)==3:
-            return 200       
+        for num in range(1, 6 + 1):
 
-        #  if(num[0] == 1 and num[1]==5):
-        #  num1 = num[0] * 100
-        #  num2 = num[1] * 10
-        #  result1 = sum(num1)
-        #  result2 = sum(num2)
-        #  final = result1 +result2
-        #  return result 
-        if num.count(1)==1 and num.count(5)==1:
-            return 150
+            pip_count = count_times[num]
 
-        if(num[0] == 5):
-         num = num * 10
-         result = sum(num)
-         return result
+            if pip_count >= 3:
 
-        if(num[0] == 1 ):
-         num = num * 100
-         result1 = sum(num)
-         return result1
+                if num == 1:
 
-        if(num[0] == 5 and num[1]==5):
-         num = num * 10
-         result = sum(num)
-         return result
+                    ones_used = True
 
-        if(num[0] == 1 and num[1]==1):
-         num = num * 100
-         result = sum(num)
-         return result 
+                elif num == 5:
 
-        if(num[0] == 2):
-         num = num * 0
-         result = sum(num)
-         return result
+                    fives_used = True
 
-        if( num.count(5) == 3):
-            return 500  
+                score += num * 100
+
+                
+                pips_beyond_3 = pip_count - 3
+
+                score += score * pips_beyond_3
+
+             
+                if num == 1:
+                    score *= 10
+
+        if not ones_used:
+            score += count_times.get(1, 0) * 100
+
+        if not fives_used:
+            score += count_times.get(5, 0) * 50
+
+        return score
+
+
+
