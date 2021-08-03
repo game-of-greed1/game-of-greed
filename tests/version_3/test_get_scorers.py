@@ -1,7 +1,7 @@
 import pytest
 from game_of_greed.game_logic import GameLogic
 
-# pytestmark = [pytest.mark.version_3]
+pytestmark = [pytest.mark.version_3]
 
 
 @pytest.mark.parametrize(
@@ -19,5 +19,5 @@ from game_of_greed.game_logic import GameLogic
     ],
 )
 def test_get_scorers(test_input, expected):
-    actual = GameLogic.get_scoqrers(test_input)
+    actual = GameLogic.get_scorers(test_input)
     assert sorted(actual) == sorted(expected)
