@@ -1,6 +1,8 @@
-from game_of_greed import game_logic
+from typing import Container
+# from game_of_greed import game_logic
 from game_of_greed.game_logic import GameLogic
 from game_of_greed.banker import Banker
+from collections import Counter
 
 
 class Game(GameLogic, Banker): 
@@ -15,8 +17,10 @@ class Game(GameLogic, Banker):
             in_play = True
             rounds_number = 1
             dice_number = 6
+            ask_User2 = "b"
             while in_play:
-                print(f"Starting round {rounds_number}")
+                if ask_User2 == "b":
+                    print(f"Starting round {rounds_number}")
                 print(f"Rolling {dice_number} dice...")
                 dice = roller(dice_number)
                 Game.print_random_dice(dice)
@@ -59,7 +63,16 @@ class Game(GameLogic, Banker):
             first_string = first_string + str(x) + " " 
         first_string+=last_string
         print(first_string)
-    
+
+
+    def zilch(self, round_number):
+        print('****************************************')
+        print('**        Zilch!!! Round over         **')
+        print('****************************************')
+        print(f"You banked 0 points in round {round_number}")           
+        print(f"Total score is {self.balance} points")
+        self.round_number+=1
+        self.dice_number = 6
 
 
 if __name__ == "__main__":
