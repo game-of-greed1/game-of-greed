@@ -83,7 +83,7 @@ class GameLogic:
     ####################################################################
 
     @staticmethod
-    def get_scoqrers(dice):
+    def get_scorers(dice):
         all_dice_score = GameLogic.calculate_score(dice)
         if all_dice_score == 0:
             return tuple()
