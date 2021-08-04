@@ -2,7 +2,7 @@ import pytest
 from tests.flo import diff
 from game_of_greed.game import Game
 
-# pytestmark = [pytest.mark.version_2]
+pytestmark = [pytest.mark.version_2]
 
 
 def test_quitter():
