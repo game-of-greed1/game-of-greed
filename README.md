@@ -18,3 +18,4 @@
 |  Lab: Game of Greed 1 : PR '2'                 | [PR '2'](https://github.com/game-of-greed1/game-of-greed/pull/6)|
 |  Lab: Game of Greed 2 : PR '3'                 | [PR '3'](https://github.com/game-of-greed1/game-of-greed/pull/7)|
 |  Lab: Game of Greed 3 : PR '4'                 | [PR '4'](https://github.com/game-of-greed1/game-of-greed/pull/10)|
+|  Lab: Game of Greed 8 & 9 : PR '5'                 | [PR '5'](https://github.com/game-of-greed1/game-of-greed/pull/13)|
